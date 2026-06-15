@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Patient Records</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+  background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+              url("{{ url_for('static', filename='bg.jpg') }}");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family:Segoe UI;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.btn-back {
+  font-size: 1.4rem;
+  font-weight: 900;
+  padding: 0.35rem 0.75rem;
+}
+
+h2{
+color:#2575fc;
+font-weight:bold;
+}
+
+.table th{
+background:#2575fc;
+color:white;
+text-align:center;
+}
+
+.table td{
+text-align:center;
+}
+
+tr:hover{
+background:#eef3ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<div class="d-flex align-items-center justify-content-center mb-4 position-relative">
+  <a href="/" class="btn btn-outline-secondary btn-back position-absolute start-0">←</a>
+  <h2 class="text-center mb-0">Patient Records</h2>
+</div>
+
+<table class="table table-bordered mt-4">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Systolic</th>
+<th>Diastolic</th>
+<th>Result</th>
+</tr>
+
+{% for row in data %}
+
+<tr>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+<td>{{ row[4] }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
